@@ -1,0 +1,31 @@
+###############################################################################
+#                          Generated on phpdocker.io                          #
+###############################################################################
+version: '3.1'
+services:
+    memcached:
+        image: 'memcached:alpine'
+
+    redis:
+        image: 'redis:alpine'
+
+    webserver:
+        image: 'nginx:alpine'
+        working_dir: /app
+        volumes:
+            - '.:/app'
+            - './phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf'
+        ports:
+            - '8000:80'
+
+    php-fpm:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        working_dir: /app
+        volumes:
+            - '.:/app'
+            - './phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/8.2/fpm/conf.d/99-overrides.ini'
+            - './path/to/custom-php.ini:/etc/php/8.2/fpm/conf.d/100-custom-php.ini'
+
+

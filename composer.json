@@ -1,0 +1,19 @@
+{
+    "name": "daniel/curso-poo-php",
+    "description": "Curso completo sobre POO com PHP",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Daniel\\CursoPooPhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "daniel",
+            "email": "danielriber548@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "symfony/var-dumper": "^6.3"
+    }
+}
